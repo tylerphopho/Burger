@@ -6,13 +6,13 @@ if(process.env.JAWSB_URL){
 } else {
     connection = mysql.createConnection({
         host: "localhost",
-        port: "3305",
+        port: "3306",
         user: "root",
-        password: process.env.MYSQL_PASSWORD,
+        password: "password",
         database: "burgers_db"
     });
 }
-connection.connection(function(err){
+connection.connect(function(err){
     if(err){
         console.log("err connectiong: " + err.stack);
         return;
@@ -20,4 +20,4 @@ connection.connection(function(err){
     console.log("connected as id " + connection.threadId);
 });
 
-module.exports = connection
+module.exports = connection;

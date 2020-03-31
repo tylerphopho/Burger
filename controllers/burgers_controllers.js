@@ -37,7 +37,7 @@ router.put("/api/eat/:id", function(req, res){
     );
 });
 
-router.deleteOne("/api/remove/:id", function(req,res){
+router.delete("/api/remove/:id", function(req,res){
     let id = req.params.id;
     burger.deleteOne(id, data => {
         console.log("Burger removed.")
