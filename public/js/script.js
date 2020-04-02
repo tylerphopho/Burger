@@ -19,4 +19,32 @@ $(function(){
             });
         }
     });
-})
+
+    $(".eat").on("click", function(event){
+        event.preventDefault();
+
+        let id = $(this).attr("data-id");
+
+        console.log(id);
+        $.ajax("/api/eat/" + id, {
+            type: "PUT"
+        }).then(function(resp){
+            console.log(resp);
+            location.reload();
+        });
+    });
+
+    $(".remove").on("click", function(event){
+        event.preventDefault();
+
+        let id = $(this).attr("data-id");
+
+        console.log(id);
+        $.ajax("/api/remove/" + id, {
+            type: "DELETE"
+        }).then(function(resp){
+            console.log(resp)
+            location.reload();
+        });
+    });
+});
