@@ -12,34 +12,24 @@ router.get("/", function(req, res){
 });
 
 router.post("/api/add", function(req, res){
-    console.log(req.body)
-
-    burger.insertOne(["burger_name"], [req.body.burger_name], function(results){
-        res.json({ id: results.insertId });
+    var name = req.body.name;
+    console.log(`burger name: ${name}`);
+    burger.insert(name, data => {
+        res.json(data);
     });
-})
+});
 
 router.put("/api/eat/:id", function(req, res){
-    let condition = "burger_id = " + req.params.id;
-    console.log(req.params.id);
-    console.log("condition", condition)
-    burger.updateOne(
-        {
-            devoured: true
-        },
-        condition,
-        function(results) {
-            if(results.changedRows === 0) {
-                return res.status(404).end();
-            }
-            res.status(200).send()
-        }
-    );
+let id = req.params.id;
+
+burger.update(id, data => {
+    res.json(data);
+    });
 });
 
 router.delete("/api/remove/:id", function(req,res){
     let id = req.params.id;
-    burger.deleteOne(id, data => {
+    burger.delete(id, data => {
         console.log("Burger removed.")
         res.json(data)
     });

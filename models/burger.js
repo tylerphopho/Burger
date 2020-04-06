@@ -5,16 +5,16 @@ let burger = {
         orm.selectAll(cb);
     },
 
-    addOne: function(burger, cb) {
-        orm.addOne(burger, cb);
+    insert: function(burger, cb) {
+        orm.insert(burger, cb);
     },
 
-    updateOne: function(condition, cb) {
-        orm.updateOne(condition, cb);
+    update: function(condition, cb) {
+        orm.update(condition, cb);
     },
 
-    deleteOne: function(id, cb) {
-        orm.deleteOne(id, cb);
+    delete: function(id, cb) {
+        orm.delete(id, cb);
     }
 };
 
