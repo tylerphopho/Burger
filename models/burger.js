@@ -9,8 +9,8 @@ let burger = {
         orm.insert(burger, cb);
     },
 
-    update: function(condition, cb) {
-        orm.update(condition, cb);
+    update: function(id, cb) {
+        orm.update(id, cb);
     },
 
     delete: function(id, cb) {

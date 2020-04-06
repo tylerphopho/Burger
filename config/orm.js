@@ -18,7 +18,7 @@ let orm = {
     );
     },
     update: function(id, cb) {
-        connection.query("UPDATE burgers SET devoured 1 WHERE id = ?",
+        connection.query("UPDATE burgers SET devoured = 1 WHERE id = ?",
         [id],
         (err, resp) => {
             if (err) throw err;
